@@ -24,7 +24,7 @@ if config.config_file_name is not None:
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql://postgres:postgres@postgres:5432/weather_db"
+    "postgresql://postgres:postgres@db:5432/weather_db"
 )
 
 config.set_main_option("sqlalchemy.url", DATABASE_URL)

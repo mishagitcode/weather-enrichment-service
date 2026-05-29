@@ -1,8 +1,9 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-from backend import schemas, crud
-from backend.db.engine import get_db
+import schemas
+import crud
+from db.engine import get_db
 from worker.tasks.weather_tasks import update_weather_for_city
 
 app = FastAPI()

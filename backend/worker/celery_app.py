@@ -12,12 +12,12 @@ celery_app = Celery(
     broker=REDIS_URL,
     backend=REDIS_URL,
     include=[
-        "app.tasks"
+        "worker.tasks.weather_tasks"
     ]
 )
 
 celery_app.conf.task_routes = {
-    "app.tasks.update_weather_for_city": {
+    "worker.tasks.weather_tasks.update_weather_for_city": {
         "queue": "weather"
     }
 }

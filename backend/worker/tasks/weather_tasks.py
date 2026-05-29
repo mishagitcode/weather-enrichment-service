@@ -1,12 +1,12 @@
 from datetime import datetime
 
-from backend.db.engine import SessionLocal
-from backend.db.models import City, WeatherData
-from backend.services.weather_api import fetch_weather
-from backend.worker.celery_app import celery_app
+from db.engine import SessionLocal
+from db.models import City, WeatherData
+from services.weather_api import fetch_weather
+from worker.celery_app import celery_app
 
 
-@celery_app.task(name="app.tasks.update_weather_for_city")
+@celery_app.task(name="worker.tasks.weather_tasks.update_weather_for_city")
 def update_weather_for_city(city_id: int):
     db = SessionLocal()
 
